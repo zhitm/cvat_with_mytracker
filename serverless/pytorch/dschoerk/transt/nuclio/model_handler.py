@@ -8,6 +8,7 @@ from pysot_toolkit.trackers.net_wrappers import NetWithBackbone
 from pysot_toolkit.trackers.tracker import Tracker
 from PIL import Image
 import os
+import time
 
 
 pathToFolder = "/opt/nuclio/common/Folder3/"
@@ -75,12 +76,6 @@ class ModelHandler:
         f.write("track!")
         f.close()
 
-        # ansPath = ""
-        # if self.ind_of_dir == 2:
-        #     ansPath = pathToFolder+"init"+str(1)+".txt"
-        # else:
-        #     ansPath = pathToFolder+"update"+str(self.ind_of_dir-1)+".txt"
-
         ansPath1 = pathToFolder+"update"+str(self.ind_of_dir-1)+".txt"
         ansPath2 = pathToFolder+"init"+str(self.ind_of_dir-1)+".txt"
 
@@ -92,7 +87,7 @@ class ModelHandler:
             ansPath = ansPath1
         else:
             ansPath = ansPath2
-
+        time.sleep(0.001)
         ansFile = open(ansPath, "r")
         ansStr = ansFile.read()
         l, t, r, b = [float(x) for x in ansStr.split(" ")]

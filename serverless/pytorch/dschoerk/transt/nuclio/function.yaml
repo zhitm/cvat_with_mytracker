@@ -2,13 +2,13 @@ metadata:
   name: pth-dschoerk-transt
   namespace: cvat
   annotations:
-    name: TransT
+    name: MyTracker
     type: tracker
     spec:
     framework: pytorch
 
 spec:
-  description: Fast Online Object Tracking and Segmentation
+  description: Tracker
   runtime: 'python:3.8'
   handler: main:handler
   eventTimeout: 100s
