@@ -47,7 +47,7 @@ spec:
           value: pip install torch==1.7.1+cpu torchvision==0.8.2+cpu torchaudio==0.7.2 -f https://download.pytorch.org/whl/torch_stable.html
 
         - kind: RUN
-          value: pip install jsonpickle opencv-python
+          value: pip install jsonpickle opencv-python requests
 
         - kind: RUN
           value: wget --no-check-certificate 'https://drive.google.com/uc?id=1Pq0sK-9jmbLAVtgB9-dPDc2pipCxYdM5' -O /transt.pth

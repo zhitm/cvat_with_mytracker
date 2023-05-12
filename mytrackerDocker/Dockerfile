@@ -56,7 +56,7 @@ RUN apt update && apt install libcpprest-dev -y
 
 RUN sed -i '86 i INTERFACE_LINK_LIBRARIES "OpenSSL::SSL"' /usr/lib/x86_64-linux-gnu/cmake/cpprestsdk/cpprestsdk-targets.cmake
 
-RUN git clone --branch pedestrian_tracking_4_sem     https://github.com/osechkina-masha/adas_spbu.git &&\
+RUN git clone --branch pedestrian_tracking_4_sem https://github.com/osechkina-masha/adas_spbu.git &&\
     cd adas_spbu && \
     mkdir build && \
     cd build && \
