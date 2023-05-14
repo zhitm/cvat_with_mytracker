@@ -5,12 +5,16 @@ import json
 import requests
 from io import BytesIO
 import base64
-
+import subprocess
 import numpy as np
-from model_handler import ModelState
 from PIL import Image
 
-url = 'http://192.168.0.107:8083'
+
+
+f=open("/opt/nuclio/common/ip.txt", "r")
+ip=f.read()
+f.close()
+url = 'http://'+ip+':8083'
 
 
 def image_to_base64(img):
@@ -23,9 +27,6 @@ def image_to_base64(img):
 
 def init_context(context):
     context.logger.info("Init context...  0%")
-    # requests.get('localhost:8083')
-    model = ModelState()
-    context.user_data.model = model
     context.logger.info("Init context...100%")
 
 def handler(context, event):
@@ -60,4 +61,3 @@ def handler(context, event):
         }
     return context.Response(body=json.dumps(results), headers={},
         content_type='application/json', status_code=200)
-
